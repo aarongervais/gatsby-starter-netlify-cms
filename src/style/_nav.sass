@@ -1,0 +1,41 @@
+.navbar
+  transition: background-color 0.25s ease-out
+
+  &.is-scrolling
+    background-color: rgba($white,0.97)
+
+.navbar-brand
+  a.navbar-logo-holder
+    &:hover
+      background-color: $navbar-item-hover-background-color
+    &:active
+      background-color: $navbar-item-active-background-color
+
+
+@include tablet-only
+  .navbar
+    > .container 
+      padding: 0 0.5rem
+
+.social-icon
+  width: 1em
+  height: 1em
+  fill: $ow-blue
+
+.navbar-social-icons
+  display: flex
+  justify-content: space-evenly
+  max-width: 80vw
+  border-top: 1px solid $ow-beige
+  margin: 1rem auto 0 auto
+  padding: 1rem
+
+.navbar-item
+  &-social
+    display: flex
+    justify-content: center
+
+@include tablet
+  .navbar-social-icons
+    border-top: 0
+    margin: 0
