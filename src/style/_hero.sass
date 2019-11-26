@@ -1,0 +1,46 @@
+.hero
+  position: relative
+
+  &-header
+    margin-bottom: 0.25rem
+
+  &-subheader
+    font-size: 1.25rem
+    line-height: 1.35rem
+    padding-bottom: 1.5rem
+    color: $ow-purple
+  
+  &-image-container
+    position: absolute
+    top: 0
+    bottom: 0
+    right: 0
+    left: 0
+    overflow: hidden
+    z-index: -1
+
+@include mobile
+  .hero-body
+    padding-top: 6rem
+    height: 100vh
+    max-height: 736px
+
+
+@include tablet 
+  .hero
+    &-body
+      padding-top: 8rem
+      padding-bottom: 6rem
+    &-subheader, &-cta
+      max-width: 400px
+
+@include desktop 
+  .hero
+    &-body
+      padding-top: 16rem
+      padding-bottom: 16rem
+
+@include widescreen
+  .hero 
+    &-body
+      padding-left: 8rem

@@ -1,81 +1,48 @@
 import React from 'react'
+import uniqid from 'uniqid'
 import { Link } from 'gatsby'
+import useNavStructure from '../hooks/useNavStructure'
+import logo from '../img/otherwise-logo-white.svg'
 
-import logo from '../img/otherwise-logo.svg'
+const Footer = () => {
 
-const Footer = class extends React.Component {
-  render() {
-    return (
-      <footer className="footer has-background-black has-text-white-ter">
-        <div className="content has-text-centered">
+  const navItems = useNavStructure()
+  const date = new Date()
+
+  return ( 
+    <footer className="footer has-background-ow-blue has-text-white">
+      <div className="container max800 has-text-centered">
+        <Link to='/' style={{ marginBottom: '2rem', display: 'block'}}>
           <img
+            className='logo footer-logo'
             src={logo}
-            alt="Kaldi"
-            style={{ width: '14em', height: '10em' }}
+            alt="Otherwise Brewing Logo"
+            style={{ 
+              width: '140px',
+              maxHeight: 'none' 
+            }} 
           />
+        </Link>
+        <div className='footer-nav'>
+          { navItems
+              .filter( item => item.options !== 'subnav-toggle')
+              .map( item => (
+                <Link 
+                  className='footer-nav-item' 
+                  key={uniqid()} 
+                  to={item.link}
+                >{item.label}</Link>
+               )) 
+          }
         </div>
-        <div className="content has-text-centered has-background-black has-text-white-ter">
-          <div className="container has-background-black has-text-white-ter">
-            <div className="columns">
-              <div className="column is-4">
-                <section className="menu">
-                  <ul className="menu-list">
-                    <li>
-                      <Link to="/" className="navbar-item">
-                        Home
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/about">
-                        About
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/products">
-                        Products
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact/examples">
-                        Form Examples
-                      </Link>
-                    </li>
-                    <li>
-                      <a
-                        className="navbar-item"
-                        href="/admin/"
-                        target="_blank"
-                        rel="noopener noreferrer"
-                      >
-                        Admin
-                      </a>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              <div className="column is-4">
-                <section>
-                  <ul className="menu-list">
-                    <li>
-                      <Link className="navbar-item" to="/blog">
-                        Latest Stories
-                      </Link>
-                    </li>
-                    <li>
-                      <Link className="navbar-item" to="/contact">
-                        Contact
-                      </Link>
-                    </li>
-                  </ul>
-                </section>
-              </div>
-              
-            </div>
-          </div>
+
+        <div className='footer-copyright'>
+          <p>Copyright &copy; {date.getFullYear()} Otherwise Brewing LLC. All rights reserved.</p>
         </div>
-      </footer>
-    )
-  }
+
+      </div>   
+    </footer>
+  )
 }
 
 export default Footer

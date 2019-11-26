@@ -2,6 +2,14 @@
 
 $tablet: 768px
 
+// type (same as set in typography.js)
+
+
+
+$family-primary: "Roboto", "Helvetica", "Arial", "sans-serif"
+$family-secondary: "Josefin Sans", "Helvetica", "Arial", "sans-serif"
+$roboto: $family-primary
+$josefin: $family-secondary
 
 // default colors
 
@@ -37,6 +45,8 @@ $ow-beige:    #F1E8E1
 $ow-orange:   #CE8A4C
 $ow-red:      #AF524A
 
+$ow-color-list: ("ow-purple": $ow-purple, "ow-blue": $ow-blue,"ow-beige": $ow-beige,"ow-orange": $ow-orange,"ow-red": $ow-red)
+
 // Bulma overrides
 $link: $ow-blue
 
@@ -63,5 +73,32 @@ $navbar-breakpoint: $tablet
 @import "~bulma/sass/grid/all"
 @import "~bulma/sass/layout/all"
 
-@import "nav"
 
+// global modifiers
+
+*
+  box-sizing: border-box
+
+p, ul, ol 
+  &:last-child
+    margin-bottom: 0
+
+@each $key, $color in $ow-color-list
+  .has-background-#{$key}
+    background-color: $color
+
+@each $key, $color in $ow-color-list
+  .has-color-#{$key}
+    color: $color
+  a.has-color-#{$key}
+    &:hover
+      color: darken($color, 10%)
+    &:active
+      color: darken($color, 15%)
+
+
+@import "utils"
+@import "buttons_forms"
+@import "nav"
+@import "hero"
+@import "content"

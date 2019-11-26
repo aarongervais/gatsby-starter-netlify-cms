@@ -2,13 +2,17 @@ const _ = require('lodash')
 const path = require('path')
 const { createFilePath } = require('gatsby-source-filesystem')
 const { fmImagesToRelative } = require('gatsby-remark-relative-images')
+const { transformFrontmatterMD } = require('./src/utils')
 
 exports.createPages = ({ actions, graphql }) => {
   const { createPage } = actions
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        limit: 1000
+        filter: { frontmatter: { templateKey: { ne: "beer-profile" } } }
+      ) {
         edges {
           node {
             id
@@ -73,10 +77,14 @@ exports.createPages = ({ actions, graphql }) => {
 }
 
 exports.onCreateNode = ({ node, actions, getNode }) => {
+  
   const { createNodeField } = actions
+  
   fmImagesToRelative(node) // convert image paths for gatsby images
+  
+  transformFrontmatterMD(node) // convert markdown frontmatter to HTML
 
-  if (node.internal.type === `MarkdownRemark`) {
+  if (node.internal.type === `MarkdownRemark`) {    
     const value = createFilePath({ node, getNode })
     createNodeField({
       name: `slug`,
@@ -84,4 +92,5 @@ exports.onCreateNode = ({ node, actions, getNode }) => {
       value,
     })
   }
+
 }

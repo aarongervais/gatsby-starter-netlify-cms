@@ -48,7 +48,7 @@ const Navbar = () => {
           <img 
             className="logo" 
             src={logo} 
-            alt="Otherwise Brewing" 
+            alt="Otherwise Brewing Logo" 
             style={{ 
               width: '140px',
               maxHeight: 'none' 

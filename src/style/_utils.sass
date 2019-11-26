@@ -1,0 +1,56 @@
+hr 
+  width: 80%
+  max-width: 480px
+  margin: 1.5rem auto
+
+.no-padding-bottom
+  padding-bottom: 0
+
+.no-padding-top
+  padding-top: 0
+
+.no-padding-sides
+  padding-left: 0
+  padding-right: 0
+
+.max1200, .max1000, .max800, .max600
+  margin: auto 
+
+.max1200
+  max-width: 1200px
+
+.max1000 
+  max-width: 1000px
+
+.max800 
+  max-width: 800px
+
+.max600 
+  max-width: 600px
+
+// place below the content in a position: relative div
+// can place an "is-overlay" div below the image with an rgba background to do color overlay
+.image-underlay-wrapper
+  position: absolute
+  z-index: -1
+  top: 0
+  bottom: 0
+  left: 0
+  right: 0
+
+.v-align-content 
+  display: flex
+  flex-direction: column
+  justify-content: center
+
+
+@include mobile
+  .columns
+    &.is-reversed-mobile
+      display: flex
+      flex-direction: row
+      flex-wrap: wrap-reverse
+
+      > .column
+        flex-basis: auto
+

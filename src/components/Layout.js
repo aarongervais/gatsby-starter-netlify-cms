@@ -1,24 +1,30 @@
 import React, { Fragment }  from 'react'
 import { Helmet } from 'react-helmet'
-import Footer from '../components/Footer'
+import { globalHistory } from '@reach/router'
 
+import Footer from '../components/Footer'
 import '../style/all.sass'
-import useSiteMetadata from './SiteMetadata'
+// import useSiteMetadata from './SiteMetadata'
 import { withPrefix } from 'gatsby'
 
 // <Helmet
 //   bodyAttributes={{ class: 'has-navbar-fixed-top' }}
 // >
 
-const TemplateWrapper = ({ children }) => {
-  const { title, description } = useSiteMetadata()
+const TemplateWrapper = ({ 
+  seoTitle, 
+  seoDescription,
+  featuredImage,
+  slug,
+  children 
+}) => {
   return (
     <Fragment>
       <Helmet>
         <html lang="en" />
-        <title>{title}</title>
+        <title>{seoTitle}</title>
         <meta name="robots" content="noindex, nofollow" />
-        <meta name="description" content={description} />
+        <meta name="description" content={seoDescription} />
 
         <link rel="apple-touch-icon" sizes="57x57" href={`${withPrefix('/')}img/favicons/apple-icon-57x57.png`} />
         <link rel="apple-touch-icon" sizes="60x60" href={`${withPrefix('/')}img/favicons/apple-icon-60x60.png`} />
@@ -39,8 +45,9 @@ const TemplateWrapper = ({ children }) => {
         <meta name="theme-color" content="#F1E8E1" />
 
         <meta property="og:type" content="business.business" />
-        <meta property="og:title" content={title} />
-        <meta property="og:url" content="/" />
+        <meta property="og:title" content={seoTitle} />
+        <meta property="og:description" content={seoDescription} />
+        <meta property="og:url" content={globalHistory.location.href} />
         <meta
           property="og:image"
           content={`${withPrefix('/')}img/favicons/img/og-image.jpg`}

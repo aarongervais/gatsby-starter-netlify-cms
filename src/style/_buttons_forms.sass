@@ -1,0 +1,67 @@
+.button
+  box-shadow:  0 4px 8px rgba($black, 0.1)
+  font-weight: 600
+  // font-family: $josefin
+
+  &.is-ow-red
+    background-color: $ow-red 
+    color: $white
+    border: 0
+    
+    &:hover
+      background-color: lighten($ow-red, 5%)
+    &:active
+      background-color: lighten($ow-red, 10%)
+
+  &.is-ow-beige
+    background-color: $ow-beige 
+    color: $ow-red
+    border: 1px solid darken($ow-beige, 5%)
+    
+    &:hover
+      background-color: darken($ow-beige, 5%)
+    &:active
+      background-color: darken($ow-beige, 10%)
+  
+  &.is-ow-white
+    background-color: $white 
+    color: $ow-red
+    border: 0
+    
+    &:hover
+      background-color: darken($white, 5%)
+    &:active
+      background-color: darken($white, 10%)
+
+input
+  padding: 0.375rem 0.75em
+  height: 2.25em;
+  border-radius: 4px
+  border: 1px solid $grey-light
+
+form.mailinglist 
+  margin-bottom: 0
+  display: flex
+  justify-content: space-evenly
+
+.submit-msg
+  text-align: center
+  width: 100%
+  margin: 0.5rem
+  font-style: italic
+  &.error
+    color: $red
+
+
+@include tablet 
+
+  form.mailinglist
+    justify-content: flex-start
+    input[type='email']
+      width: 270px
+      margin-right: 0.5rem
+
+  .mailing-list-bottom
+    form.mailinglist
+      justify-content: center
+

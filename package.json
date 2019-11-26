@@ -5,8 +5,11 @@
   "author": "Austin Green",
   "dependencies": {
     "bulma": "^0.7.0",
+    "deep-map": "^2.0.0",
     "gatsby": "^2.13.31",
     "gatsby-image": "^2.0.23",
+    "gatsby-plugin-catch-links": "^2.1.17",
+    "gatsby-plugin-mailchimp": "^5.1.2",
     "gatsby-plugin-netlify": "^2.0.6",
     "gatsby-plugin-netlify-cms": "^4.1.6",
     "gatsby-plugin-purgecss": "^4.0.0",
@@ -33,7 +36,11 @@
     "react-dom": "^16.8.4",
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.19",
+    "remark": "^11.0.2",
+    "remark-html": "^10.0.0",
+    "smoothscroll-polyfill": "^0.4.4",
     "typography": "^0.16.19",
+    "uniqid": "^5.1.0",
     "uuid": "^3.2.1"
   },
   "keywords": [

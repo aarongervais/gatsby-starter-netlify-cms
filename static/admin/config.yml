@@ -18,7 +18,7 @@ collections:
       - {label: "Publish Date", name: "date", widget: "datetime"}
       - {label: "Description", name: "description", widget: "text"}
       - {label: "Featured Post", name: "featuredpost", widget: "boolean"}
-      - {label: "Featured Image", name: "featuredimage", widget: image}
+      - {label: "Featured Image", name: "featuredimage", widget: "image"}
       - {label: "Body", name: "body", widget: "markdown"}
       - {label: "Tags", name: "tags", widget: "list"}
 
@@ -30,19 +30,25 @@ collections:
         name: "index"
         fields:
           - {label: "Template Key", name: "templateKey", widget: "hidden", default: "index-page"}
-          - {label: Title, name: title, widget: string}
-          - {label: Image, name: image, widget: image}
-          - {label: Heading, name: heading, widget: string}
-          - {label: Subheading, name: subheading, widget: text}
-          - {label: Intro, name: intro, widget: object, fields: [
-              {label: Title, name: title, widget: string}, 
-              {label: Description, name: description, widget: markdown}
+          - {label: "Page Title", name: "seoTitle", widget: "string"}
+          - {label: "Meta Description", name: "seoDescription", widget: "string"}
+          - {label: "Featured Image", name: "featuredImage", widget: "object", fields:[
+              {label: "Image", name: "image", widget:"image"},
+              {label: "Alt Text", name: "alt", widget:"string"}
             ]}
-          - {label: "Value Props", name: valueProps, widget: list, fields: [
-              {label: Image, name: image, widget: image}, 
-              {label: Alt, name: alt, widget: string},
-              {label: Subheader, name: subheader, widget: text},
-              {label: Text, name: text, widget: text}
+          - {label: "Hero", name: "hero", widget: "object", fields: [
+              {label: "Header", name: "header", widget: "string"},
+              {label: "Subheader", name: "subheader_MD", widget: "markdown"}
+            ]}
+          - {label: "Mission Statement", name: "missionStatement_MD", widget: "markdown"}
+          - {label: "Value Props", name: "valueProps", widget: "list", fields: [
+              {label: "Image", name: "image", widget: "image"}, 
+              {label: "Alt Text", name: "alt", widget: "string"},
+              {label: "Image Alignment", name: "alignment", widget: "select", default: "right", options: [ 
+                { label: "Left", value: "left"},
+                { label: "Right", value: "right"}
+              ]},
+              {label: "Text", name: "text_md", widget: "markdown"}
             ]}
       - file: "src/pages/about/index.md"
         label: "About"

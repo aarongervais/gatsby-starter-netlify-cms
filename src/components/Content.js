@@ -1,8 +1,8 @@
 import React from 'react'
 import PropTypes from 'prop-types'
 
-export const HTMLContent = ({ content, className }) => (
-  <div className={className} dangerouslySetInnerHTML={{ __html: content }} />
+export const HTMLContent = ({ content, className, style }) => (
+  <div className={className} style={style} dangerouslySetInnerHTML={{ __html: content }} />
 )
 
 const Content = ({ content, className }) => (
