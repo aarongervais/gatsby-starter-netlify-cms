@@ -2,7 +2,7 @@ import React from 'react'
 import uniqid from 'uniqid'
 import { Link } from 'gatsby'
 import Img from 'gatsby-image'
-import useBeerList from '../hooks/useBeerList'
+import { useBeerList } from '../hooks'
 
 const BeerSummaryCard = ({
   abv,
@@ -23,6 +23,7 @@ const BeerSummaryCard = ({
         className={`${basename}-image`} 
         fluid={beerImage.childImageSharp.fluid}
         alt={`product image for beer ${name}`}
+        style={{maxWidth:'150px'}}
       />
       <h3 className={`${basename}-title`}>{name}</h3>
       <p className={`${basename}-styles`}>{styles.join(', ')}</p>

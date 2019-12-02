@@ -50,7 +50,7 @@
   "main": "n/a",
   "scripts": {
     "clean": "gatsby clean",
-    "start": "yarn dev",
+    "serve": "gatsby serve",
     "build": "yarn clean && gatsby build",
     "dev": "yarn clean && gatsby develop",
     "format": "prettier --trailing-comma es5 --no-semi --single-quote --write \"{gatsby-*.js,src/**/*.js}\"",

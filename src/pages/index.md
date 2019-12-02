@@ -3,21 +3,18 @@ templateKey: index-page
 seoTitle: Otherwise Brewing | Beer Beyond Barley
 seoDescription: San Francisco's first gluten-free brewery, dedicated to exploring the flavors of alternative grains
 featuredImage: 
-  imageDesktop: /img/home-hero-desktop.jpg
-  imageMobile: /img/home-hero-mobile.jpg
+  src: 
+    desktop: /img/home-hero-desktop.jpg
+    mobile: /img/home-hero-mobile.jpg
   alt: A glass of beer looking down from above
 hero:
   header: Beer beyond barley
   subheader_MD: |
     Delicious beer made with ancient grains. Naturally gluten free.
-missionStatement:
-  text_MD: |
-    ## We think everyone should get to drink great beer
+missionStatement_MD: |
+  ## We think everyone should get to drink great beer
 
-    That’s why we started exploring gluten-free alternatives to traditional brewing ingredients. Along the way, we discovered a huge palette of amazing flavors—we can’t wait to share them with you!
-  
-  image: /img/cheers-wide.jpg
-  alt: A group of friends cheersing beer
+  That’s why we started exploring gluten-free alternatives to traditional brewing ingredients. Along the way, we discovered a huge palette of amazing flavors—we can’t wait to share them with you!
 valueProps:
   - image: /img/istockphoto-1168915856-1024x1024.jpg
     alt: people enjoying beer outside
@@ -37,6 +34,4 @@ valueProps:
     text_MD: |
       ### Ancient grains with big flavor   
       Beer is dominated by barley for historical reasons, but there are a lot of flavor reasons to explore other grains. From quinoa to millet to buckwheat and beyond, we bring you a unique and delicious taste experience. 
-whereToFind:
-  header: asdf
 ---

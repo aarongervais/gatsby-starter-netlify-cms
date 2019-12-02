@@ -2,12 +2,19 @@ module.exports = {
   siteMetadata: {
     title: 'Otherwise Brewing',
     description: 'Beer beyond barley. San Francisco\'s first gluten-free brewery.',
+    location: {
+      origin: 'https://www.otherwisebrewing.com',
+      hostname: 'otherwisebrewing.com',
+      protocol: 'https:'
+    },
     imageDimensions: {
-      mobile: {width: 828, height: 1472},
-      desktop: {width: 2880, height: 1516}
+      hero: {
+        mobile: {width: 414, height: 736},
+        desktop: {width: 1440, height: 758}
+      }
     },
     nav: [
-      { label: 'Home', link: '/', options: 'hide-top-desktop'},
+      { label: 'Home', link: '/', options: 'is-hidden-tablet'},
       { label: 'Our Beers', link: '/beers', options: ''},
       { label: 'Where to Find', link: '/where', options: ''},
       { label: 'More', link: '', options: 'subnav-toggle'},

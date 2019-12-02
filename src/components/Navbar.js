@@ -1,6 +1,8 @@
 import React, { useState, useEffect, Fragment } from 'react'
+import uniqid from 'uniqid'
 import { Link } from 'gatsby'
 import logo from '../img/otherwise-logo.svg'
+import useNavStructure from '../hooks/useNavStructure'
 import SocialIcons from './SocialIcons'
 
 const Navbar = () => {
@@ -8,6 +10,7 @@ const Navbar = () => {
   const [active, setActive] = useState(false)
   const [navBarActiveClass, setNavBarActiveClass] = useState('')
   const [scrollClass, setScrollClass] = useState('')
+  const navItems = useNavStructure()
 
   useEffect(() => {
     setNavBarActiveClass(active ? 'is-active' : '')
@@ -25,13 +28,40 @@ const Navbar = () => {
     })
   })
 
+  const mainItems = (
+    <Fragment>
+      { navItems
+        .filter( item => item.options.indexOf('subnav') === -1 )
+        .map( item => {
+          const classnames =  ['navbar-item', item.options]
+                                .filter(item => item)
+                                .join(' ')
+          return  <Link 
+                    key={uniqid()}
+                    className={classnames}
+                    to={item.link}
+                  >{item.label}</Link>   
+        })
+      }
+    </Fragment>
+  )
+
+  const subnavLabel = navItems
+                        .filter( item => item.options === 'subnav-toggle')
+                        .map( item => item.label )
+
   const subnavItems = (
     <Fragment>
-      <Link className="navbar-item" to="/about">Our Story</Link>
-      <Link className="navbar-item" to="/faq">FAQs</Link>                
-      <Link className="navbar-item" to="/blog">Blog</Link>
-      <Link className="navbar-item" to="/vendors">Sell our Beer</Link>                 
-      <Link className="navbar-item" to="/contact">Contact</Link>
+      { navItems
+          .filter( item => item.options === 'subnav-item' ) 
+          .map( item => (
+            <Link 
+              key={uniqid()}
+              className='navbar-item'
+              to={item.link}
+            >{item.label}</Link>   
+          ))
+      }
     </Fragment>
   )
 
@@ -68,25 +98,17 @@ const Navbar = () => {
         </div>
 
         <div id="navMenu" className={`navbar-menu ${navBarActiveClass}`} >
-
           <div className="navbar-start has-text-centered">
-            <Link className="navbar-item is-hidden-tablet" to="/">Home</Link>
-            <Link className="navbar-item" to="/beers">Our Beers</Link>
-            <Link className="navbar-item" to="/where">Where to Find</Link> 
-
+            {mainItems}
             {/* desktop/tablet menu */}
             <div className="navbar-item has-dropdown is-hoverable is-hidden-mobile">
-              <span className="navbar-link">More</span>
+              <span className="navbar-link">{subnavLabel}</span>
               <div className="navbar-dropdown">{subnavItems}</div>
             </div>
-
             {/* mobile menu */}
             <div className="is-hidden-tablet">{subnavItems}</div>
-
           </div>
-
           <div className="navbar-end navbar-social-icons">{SocialIcons}</div>
-
         </div>
 
       </div>

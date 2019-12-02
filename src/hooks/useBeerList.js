@@ -13,15 +13,14 @@ export default () => {
               id
               html
               frontmatter {
-                abv
-                currentlyAvailable
-                releaseDate(formatString: "MMM DD, YYYY")
-                description
-                excerpt
-                styles
-                fermentables
                 name
+                styles
+                releaseDate(formatString: "MMM DD, YYYY")
+                abv
                 ibu
+                fermentables
+                excerpt
+                currentlyAvailable
                 beerImage {
                   childImageSharp {
                     fluid(maxWidth: 120, maxHeight: 120, quality: 100) {
