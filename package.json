@@ -37,7 +37,7 @@
     "react-helmet": "^5.2.0",
     "react-typography": "^0.16.19",
     "remark": "^11.0.2",
-    "remark-html": "^10.0.0",
+    "remark-html": "^13.0.2",
     "smoothscroll-polyfill": "^0.4.4",
     "typography": "^0.16.19",
     "uniqid": "^5.1.0",
